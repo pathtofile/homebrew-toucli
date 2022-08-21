@@ -11,10 +11,8 @@ cask "toucli" do
     app "toucli.app"
 
     postflight do
-      system "echo [*] $(brew --prefix)/toucli"
+      system "ln -s /Applications/toucli.app/Contents/MacOS/toucli /opt/homebrew/bin/toucli"
     end
 
-    uninstall_postflight do
-      system "rm $(brew --prefix)/toucli"
-    end
+    uninstall delete: "/opt/homebrew/bin/toucli"
 end
