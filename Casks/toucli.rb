@@ -9,5 +9,5 @@ cask "toucli" do
   
     depends_on macos: ">= :big_sur"
     app "toucli.app"
-    system "link /Applications/toucli.app/Contents/MacOS/toucli /usr/local/bin/toucli"
+    system "ln -s /Applications/toucli.app/Contents/MacOS/toucli /usr/local/bin/toucli"
 end
