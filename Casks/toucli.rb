@@ -6,8 +6,13 @@ cask "toucli" do
     name "toucli"
     desc "Use touchID and the Secure Enclave to encrypt data from the commandline"
     homepage "https://github.com/pathtofile/toucli"
-  
+
     depends_on macos: ">= :big_sur"
     app "toucli.app"
-    system "ln -s /Applications/toucli.app/Contents/MacOS/toucli /usr/local/bin/toucli"
+
+    postflight do
+      system "ln -s /Applications/toucli.app/Contents/MacOS/toucli /usr/local/bin/toucli"
+    end
+
+    uninstall delete: "/usr/local/bin/toucli"
 end
